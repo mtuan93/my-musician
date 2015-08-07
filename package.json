@@ -1,0 +1,15 @@
+{
+  "name": "My-Musician",
+  "version": "0.0.1",
+  "description": "A Web Application for users to register, login, search for any musician they want, and share that info to other users in the app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mtuan93/my-musician"
+  },
+  "author": "Tuan Nguyen",
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-util": "^2.2.20",
+    "gulp-webserver": "^0.8.8"
+  }
+}
