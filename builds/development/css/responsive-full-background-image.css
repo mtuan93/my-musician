@@ -2,7 +2,7 @@
 */
 body {
   /* Location of the image */
-  background-image: url(https://imo.im/s/assets/start/backgrounds/background-3.f604ecdf.jpg);
+  background-image: url(../images/background.jpg);
   
   /* Image is centered vertically and horizontally at all times */
   background-position: center center;
