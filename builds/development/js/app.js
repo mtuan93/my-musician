@@ -45,7 +45,7 @@ myApp.config(['$routeProvider',
             controller: 'RegistrationController'
         }).
         when('/searchMusician', {
-            templateUrl: 'views/search.html',
+            templateUrl: 'views/searchEngine.html',
             controller: 'SearchController',
             resolve: {
                 currentAuth: function(Authentication) {
