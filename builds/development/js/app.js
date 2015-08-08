@@ -1,5 +1,5 @@
 var myApp = angular.module('myApp', ['ngRoute', 'firebase', 'appControllers', 'jp.ng-bs-animated-button'])
-    .constant('FIREBASE_URL', 'https://join-my-party.firebaseio.com/');
+    .constant('FIREBASE_URL', 'https://my-musician.firebaseio.com/');
 
 var appControllers = angular.module('appControllers', ['firebase']);
 
@@ -15,10 +15,10 @@ myApp.run(['$rootScope', '$location',
 
         $rootScope.$on("$routeChangeStart", function(event, next, current) {
             if ($rootScope.currentUser) { // if user already logged in
-                $rootScope.path = '/parties';
+                $rootScope.path = '/searchMusician';
                 if(next.templateUrl === 'views/login.html' || 
                 next.templateUrl === 'views/register.html') { // redirect to posting.html if logged in
-                    $location.path('/parties');
+                    $location.path('/searchMusician');
                 }
             } else { // if user is not logged in
                 if (next.templateUrl === 'views/register.html') {
@@ -44,26 +44,9 @@ myApp.config(['$routeProvider',
             templateUrl: 'views/register.html',
             controller: 'RegistrationController'
         }).
-        when('/parties', {
-            templateUrl: 'views/parties.html',
-            controller: 'CheckinController',
-            resolve: {
-                currentAuth: function(Authentication) {
-                    return Authentication.requireAuth();
-                }
-            }
-        }).
-        when('/checkinList', {
-            templateUrl: 'views/checkinList.html',
-            controller: 'CheckinController',
-            resolve: {
-                currentAuth: function(Authentication) {
-                    return Authentication.requireAuth();
-                }
-            }
-        }).
-        when('/gallery1', {
-            templateUrl: 'views/gallery1.html',
+        when('/searchMusician', {
+            templateUrl: 'views/search.html',
+            controller: 'SearchController',
             resolve: {
                 currentAuth: function(Authentication) {
                     return Authentication.requireAuth();
@@ -71,7 +54,7 @@ myApp.config(['$routeProvider',
             }
         }).
         otherwise({
-            redirectTo: '/parties'
+            redirectTo: '/searchMusician'
         });
     }
 ]);
